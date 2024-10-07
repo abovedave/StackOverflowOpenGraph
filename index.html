@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/@stackoverflow/stacks">
+    <title>Stack Overflow Open Graph image generator</title>
+  </head>
+  <body class="hmn-screen h100 bg-black-150 d-flex">
+    <form id="form" method="post" class="p32 wmx6 bg-white bar-lg bs-lg m-auto d-block">
+      <div class="d-flex gy4 fd-column">
+        <label class="s-label" for="question">Question URL</label>
+        <p class="s-description mtn2 mb0">e.g., https://stackoverflow.com/questions/8318911/why-does-html-think-chucknorris-is-a-color</p>
+        <input class="s-input" id="question" type="text" placeholder="Enter Stack Overflow question URL" />
+      </div>
+
+      <button type="submit" class="s-btn s-btn__filled w100 mt12">
+        Generate image
+      </button>
+
+      <div id="error" class="d-none s-notice s-notice__danger mb12" role="status"></div>
+
+      <img id="image" src="/.netlify/builders/og-images/79053110" class="d-block w100 h-auto bar-md bs-sm mt32" />
+    </form>
+
+    <script>
+      const form = document.getElementById('form')
+      const error = document.getElementById('error')
+      const image = documen.getElementById('image')
+
+      const getQuestionId = (event) => {
+        event.preventDefault()
+
+        error.classList.add('d-none')
+        
+        const urlInput = document.getElementById('question').value
+        const pattern = /(https?:\/\/)?stackoverflow\.com\/questions\/(\d+)\//
+        const match = urlInput.match(pattern)
+        
+        if (match) {
+          const questionId = match[2]
+
+          image.src = `/.netlify/builders/og-images/${questionId}`
+        } else {
+          error.textContent = 'This is not a valid question URL.'
+          error.classList.remove('d-none')
+        }
+      }
+
+      form.addEventListener('submit', getQuestionId)
+    </script>
+  </body>
+</html>
