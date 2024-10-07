@@ -75,7 +75,7 @@ const myHandler: Handler = async (event, _context) => {
                 {
                   type: 'span',
                   props: {
-                    children: stringFormatter.format(stackQuestion.score).toLowerCase() + ' vote' + (stackQuestion.score !== 1 && 's'),
+                    children: stringFormatter.format(stackQuestion.score).toLowerCase() + ' vote' + (stackQuestion.score !== 1 ? 's' : ''),
                     style: {
                       fontSize: '24px',
                       color: stacksColor.dark,
@@ -86,7 +86,7 @@ const myHandler: Handler = async (event, _context) => {
                 {
                   type: 'span',
                   props: {
-                    children: stringFormatter.format(stackQuestion.answer_count).toLowerCase() + ' answer' + (stackQuestion.answer_count !== 1 && 's'),
+                    children: stringFormatter.format(stackQuestion.answer_count).toLowerCase() + ' answer' + (stackQuestion.answer_count !== 1 ? 's' : ''),
                     style: {
                       fontSize: '24px',
                       color: stackQuestion.is_answered ? stacksColor.white : stacksColor.green400,
@@ -101,7 +101,7 @@ const myHandler: Handler = async (event, _context) => {
                 {
                   type: 'span',
                   props: {
-                    children: stringFormatter.format(stackQuestion.view_count).toLowerCase() + ' view' + (stackQuestion.view_count !== 1 && 's'),
+                    children: stringFormatter.format(stackQuestion.view_count).toLowerCase() + ' view' + (stackQuestion.view_count !== 1 ? 's' : ''),
                     style: {
                       fontSize: '24px',
                       color: stacksColor.medium,
