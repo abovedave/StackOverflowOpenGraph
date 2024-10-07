@@ -1,0 +1,5 @@
+[functions.og-images]
+  external_node_modules = ["satori"]
+  included_files = [
+    "netlify/lib/**"
+  ]
