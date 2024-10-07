@@ -1,0 +1,1 @@
+Combines [Satori](https://github.com/vercel/satori) with a [Netlify On-demand Builder](https://docs.netlify.com/configure-builds/on-demand-builders/) to generate an Open Graph friendly image of a Stack Overflow question.
